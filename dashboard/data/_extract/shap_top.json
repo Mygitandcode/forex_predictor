@@ -1,0 +1,4 @@
+{
+ "shap_top": null,
+ "note": "_shap_report.py 实跑失败（2026-09-05 23:48）：shap PermutationExplainer ValueError: max_evals=500 is too low, must be at least 2*num_features+1=1695（当前 FeatureStore 特征数 ~847，脚本参数停在旧特征库时代）。按辅助C 规则整块置 null；修法建议进待澄清"
+}

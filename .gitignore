@@ -1,0 +1,55 @@
+# ============================================================
+# forex_predictor .gitignore
+# 定位: 只收录"代码空间"（源码+配置+文档+工具脚本），
+#       venv/训练产物/实验状态/分析产物/日志一律不入库
+# 目标: GitHub 公开仓库 < 500MB，克隆即可重建环境（requirements.txt）
+# ============================================================
+
+# ---- Python 虚拟环境与缓存 ----
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# ---- 训练与实验产物（非代码，本地/MLflow 管理） ----
+models/*.pkl
+optuna_*.db
+mlflow.db
+mlruns/
+autogluon_models/
+
+# ---- 分析与可视化产物 ----
+shap_output/
+cluster_output/
+explain/
+
+# ---- 管线运行时产物（outputs / 元数据缓存） ----
+outputs/
+
+# ---- 数据缓存（大 npy 放 E:\forex_npy，不进仓库） ----
+data_store/
+
+# ---- 日志与临时文件 ----
+*.log
+log.txt
+_train_stderr.txt
+_train_stdout.txt
+
+# ---- 空目录（git 不追踪，显式声明防误建占位） ----
+done/
+echo/
+
+# ---- 历史遗留散落文件（内容为 pip/报错/旧日志残留，无代码价值） ----
+''
+'0]'
+0.4.28
+next_step_backup*
+
+# ---- 操作系统杂项 ----
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---- IDE（PyCharm 个人配置不入库；.idea 如需团队规范再单独提交） ----
+.idea/

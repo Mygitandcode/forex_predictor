@@ -1,0 +1,19 @@
+# ============================================================
+# MLflow Model Registry 配置
+# ============================================================
+
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "forex_predictor"
+
+# 模型注册阶段
+# Stage 流转: None → Staging → Production → Archived
+registry:
+  default_stage: "Staging"
+
+# 每个币种注册的模型
+models: []
+# 示例:
+# - name: "EURUSD_v1"
+#   run_id: ""
+#   stage: "Production"

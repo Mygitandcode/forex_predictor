@@ -1,0 +1,4 @@
+{
+ "latest_signals": null,
+ "note": "realtime_predictor 为 ZeroMQ 常驻循环（--symbol 启动即 while True，无单轮模式，且无 ZMQ 数据源运行）；model_predictions 表 COUNT(*)=0（2026-09-05 23:48 经 mysql_proxy/pymysql 实查）→ 按辅助C 规则整块置 null"
+}

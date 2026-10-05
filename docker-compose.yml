@@ -1,0 +1,69 @@
+# ============================================================
+# docker-compose.yml — 容器化编排 (Phase 5)
+#
+# 一键启动全部服务:
+#   docker-compose up -d
+# ============================================================
+
+version: "3.8"
+
+services:
+  # ---- MLflow 实验追踪 ----
+  mlflow:
+    image: python:3.10-slim
+    container_name: forex_mlflow
+    working_dir: /app
+    command: >
+      sh -c "pip install mlflow &&
+             mlflow server
+               --host 0.0.0.0
+               --port 5000
+               --backend-store-uri file:///app/mlruns
+               --default-artifact-root file:///app/mlartifacts"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/app/mlruns
+      - ./mlartifacts:/app/mlartifacts
+    restart: unless-stopped
+
+  # ---- FastAPI 推理服务 ----
+  fastapi:
+    image: python:3.10-slim
+    container_name: forex_fastapi
+    working_dir: /app
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             uvicorn serving.fastapi_app:app
+               --host 0.0.0.0
+               --port 8000
+               --reload"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./models:/app/models
+      - ./data_store:/app/data_store
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+
+  # ---- Streamlit 管理后台 ----
+  streamlit:
+    image: python:3.10-slim
+    container_name: forex_streamlit
+    working_dir: /app
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             streamlit run dashboard/streamlit_app.py
+               --server.port 8501
+               --server.address 0.0.0.0"
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - ./models:/app/models
+      - ./data_store:/app/data_store
+    depends_on:
+      - fastapi
+    restart: unless-stopped

@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-09-05 23:50:47",
+  "source_note": "FALLBACK=使用现有模型产物",
+  "model_meta": {
+    "name": "EURUSD_15m_xgboost__EURUSD_15m_E1",
+    "trained_at": "2026-08-02 15:13:56",
+    "auc": 0.529711,
+    "features_n": 60,
+    "currency_pairs": [
+      "EURUSD"
+    ],
+    "model_file": "D:\\dapanAllThings\\codes\\forex_predictor\\models\\EURUSD_15m_xgboost__EURUSD_15m_E1.pkl"
+  },
+  "latest_signals": null,
+  "shap_top": null,
+  "data_health": {
+    "m1_latest_ts": "2026-07-17 23:59:00",
+    "coverage_days": 4215.5,
+    "gap_hours": 1199.9,
+    "source": "MySQL candles_1m (EURUSD)"
+  }
+}

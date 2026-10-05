@@ -1,0 +1,50 @@
+# MT4 Forex Predictor -- Python Dependencies
+# Install: pip install -r requirements.txt
+
+# ---- Core Data ----
+numpy>=1.24.0,<2.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# ---- Data Ingestion ----
+pyzmq>=25.0.0
+requests>=2.31.0
+mt4forexparser>=1.0.0
+
+# ---- Feature Engineering ----
+# TA-Lib requires manual install on Windows (precompiled C lib needed)
+# Download cp310 .whl from https://github.com/cgohlke/talib-build/releases
+# If not installed, FeatureBuilder auto-skips TA-Lib features (C6=0 dims), no blocker
+# TA-Lib>=0.4.28
+
+# ---- Machine Learning ----
+scikit-learn>=1.3.0
+
+# ---- Stage1: AutoGluon initial exploration ----
+autogluon>=1.0.0
+
+# ---- Stage2: Optuna deep tuning ----
+optuna>=3.3.0
+optuna-integration[mlflow]>=3.3.0
+xgboost>=2.0.0
+lightgbm>=4.0.0
+
+# ---- Experiment Tracking ----
+mlflow>=2.8.0
+
+# ---- Model Serving ----
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# ---- Explainability ----
+shap>=0.43.0
+
+# ---- Visualization ----
+matplotlib>=3.8.0
+seaborn>=0.13.0
+streamlit>=1.28.0
+
+# ---- Utilities ----
+pyyaml>=6.0
+tqdm>=4.66.0
+joblib>=1.3.0

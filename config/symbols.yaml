@@ -1,0 +1,78 @@
+# ============================================================
+# 货币对配置 (12 pairs)
+# ============================================================
+
+symbols:
+  - name: "EURUSD"
+    point_size: 0.00001
+    description: "欧元/美元"
+    enabled: true
+
+  - name: "GBPUSD"
+    point_size: 0.00001
+    description: "英镑/美元"
+    enabled: true
+
+  - name: "USDJPY"
+    point_size: 0.001
+    description: "美元/日元"
+    enabled: true
+
+  - name: "AUDUSD"
+    point_size: 0.00001
+    description: "澳元/美元"
+    enabled: true
+
+  - name: "NZDUSD"
+    point_size: 0.00001
+    description: "纽元/美元"
+    enabled: true
+
+  - name: "USDCAD"
+    point_size: 0.00001
+    description: "美元/加元"
+    enabled: true
+
+  - name: "USDCHF"
+    point_size: 0.00001
+    description: "美元/瑞郎"
+    enabled: true
+
+  - name: "EURGBP"
+    point_size: 0.00001
+    description: "欧元/英镑"
+    enabled: true
+
+  - name: "EURJPY"
+    point_size: 0.001
+    description: "欧元/日元"
+    enabled: true
+
+  - name: "GBPJPY"
+    point_size: 0.001
+    description: "英镑/日元"
+    enabled: true
+
+  - name: "AUDJPY"
+    point_size: 0.001
+    description: "澳元/日元"
+    enabled: true
+
+  - name: "NZDJPY"
+    point_size: 0.001
+    description: "纽元/日元"
+    enabled: true
+
+# 预测时间窗口（分钟）
+prediction_windows: [7, 10, 15, 30, 60]
+
+# 双阈值决策边界
+thresholds:
+  up: 0.7       # p >= 0.7 → 涨
+  down: 0.3     # p <= 0.3 → 跌
+  # 0.3 < p < 0.7 → 震荡
+
+# 历史数据配置
+history:
+  years: ~17    # 2003-2024 depending on pair (see E:\forex_data\cleaned\download_log.md)
+  time_decay_lambda: 1.0   # 时间衰减因子 λ

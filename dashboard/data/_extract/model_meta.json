@@ -1,0 +1,10 @@
+{
+ "name": "EURUSD_15m_xgboost__EURUSD_15m_E1",
+ "trained_at": "2026-08-02 15:13:56",
+ "auc": 0.529711,
+ "features_n": 60,
+ "currency_pairs": [
+  "EURUSD"
+ ],
+ "model_file": "D:\\dapanAllThings\\codes\\forex_predictor\\models\\EURUSD_15m_xgboost__EURUSD_15m_E1.pkl"
+}
